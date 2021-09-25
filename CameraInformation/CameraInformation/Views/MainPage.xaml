@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CameraInformation.MainPage">
+    <StackLayout>
+        
+        <Label 
+            Text="Информация о камерах"
+            HorizontalOptions="Center"
+            Margin="8"
+            FontSize="Large" />
+        
+        <ListView x:Name="ChannelInfoListView"
+              HasUnevenRows="True"
+              ItemsSource="{Binding ChannelInfos}"
+              ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout
+                                Padding="8">
+                                
+                                <Label 
+                                    Text="{Binding Name}" 
+                                    FontSize="18" />
+
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Label 
+                                        Text="Звук включен" 
+                                        VerticalOptions="Center" />
+
+                                    <CheckBox 
+                                        IsChecked="{Binding IsSoundOn}" 
+                                        IsEnabled="False" />
+
+                                </StackLayout>
+
+                                <Label Text="{Binding ServerName}" />
+                                
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
